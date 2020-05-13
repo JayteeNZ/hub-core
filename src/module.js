@@ -38,6 +38,7 @@ export default function (moduleOptions) {
         'components/hub/ChannelManager.vue',
         'components/hub/ClickToCopy.vue',
         'components/hub/CodeBlock.vue',
+        'components/hub/CustomerGroupManager.vue',
         'components/hub/DraftTools.vue',
         'components/hub/EntrySidebar.vue',
         'components/hub/LanguagePicker.vue',
@@ -91,6 +92,9 @@ export default function (moduleOptions) {
         'pages/recycle-bin/index.vue',
         'pages/recycle-bin/_id.vue',
         'pages/index.vue',
+
+        // Modules
+        'modules/CandyPlugin.js'
     ];
 
     templates.forEach((template) => {

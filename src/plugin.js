@@ -6,30 +6,17 @@ import Buefy from 'buefy'
 import 'remixicon/fonts/remixicon.css'
 import moment from 'moment'
 import currency from 'currency.js'
+import CandyPlugin from './getcandyhub/modules/CandyPlugin.js'
 import numeral from 'numeral'
 
-import CreateAttribute from './getcandyhub/components/forms/CreateAttribute.vue'
-import ExternalAssetUploader from './getcandyhub/components/forms/ExternalAssetUploader.vue'
-import FileUpload from './getcandyhub/components/forms/FileUpload.vue'
-import FormField from './getcandyhub/components/forms/FormField.vue'
-import GroupedInput from './getcandyhub/components/forms/GroupedInput.vue'
-import HandleInput from './getcandyhub/components/forms/HandleInput.vue'
-import ImageUpload from './getcandyhub/components/forms/ImageUpload.vue'
-import LinkInput from './getcandyhub/components/forms/LinkInput.vue'
-import PriceField from './getcandyhub/components/forms/PriceField.vue'
-import PriceInput from './getcandyhub/components/forms/PriceInput.vue'
-import RadioCheckbox from './getcandyhub/components/forms/RadioCheckbox.vue'
-import RichText from './getcandyhub/components/forms/RichText.vue'
-import SelectInput from './getcandyhub/components/forms/SelectInput.vue'
-import YoutubeUploader from './getcandyhub/components/forms/YoutubeUploader.vue'
-import GetCandyLogo from './getcandyhub/components/global/GetCandyLogo.vue'
-import GetCandyStamp from './getcandyhub/components/global/GetCandyStamp.vue'
-import MainNav from './getcandyhub/components/global/MainNav.vue'
-import SideNav from './getcandyhub/components/global/SideNav.vue'
-import TopBar from './getcandyhub/components/global/TopBar.vue'
 import ActivityLog from './getcandyhub/components/hub/ActivityLog.vue'
+import ApiSettingsHandle from './getcandyhub/pages/settings/api/_handle.vue'
 import AppNotification from './getcandyhub/components/hub/AppNotification.vue'
+import AttributeGroupsIndex from './getcandyhub/pages/settings/attribute-groups/index.vue'
+import AttributeGroupsShow from './getcandyhub/pages/settings/attribute-groups/_id.vue'
 import AttributeTranslate from './getcandyhub/components/hub/AttributeTranslate.vue'
+import AttributesIndex from './getcandyhub/pages/settings/attributes/index.vue'
+import AttributesShow from './getcandyhub/pages/settings/attributes/_id.vue'
 import AutoComplete from './getcandyhub/components/hub/AutoComplete.vue'
 import BasicTranslate from './getcandyhub/components/hub/BasicTranslate.vue'
 import CandyModal from './getcandyhub/components/hub/CandyModal.vue'
@@ -37,50 +24,46 @@ import CategorySelectorTable from './getcandyhub/components/hub/CategorySelector
 import ChannelManager from './getcandyhub/components/hub/ChannelManager.vue'
 import ClickToCopy from './getcandyhub/components/hub/ClickToCopy.vue'
 import CodeBlock from './getcandyhub/components/hub/CodeBlock.vue'
+import CreateAttribute from './getcandyhub/components/forms/CreateAttribute.vue'
+import CustomerGroupManager from './getcandyhub/components/hub/CustomerGroupManager.vue'
 import DraftTools from './getcandyhub/components/hub/DraftTools.vue'
 import EntrySidebar from './getcandyhub/components/hub/EntrySidebar.vue'
+import ExternalAssetUploader from './getcandyhub/components/forms/ExternalAssetUploader.vue'
+import FileUpload from './getcandyhub/components/forms/FileUpload.vue'
+import FormField from './getcandyhub/components/forms/FormField.vue'
+import GetCandyLogo from './getcandyhub/components/global/GetCandyLogo.vue'
+import GetCandyStamp from './getcandyhub/components/global/GetCandyStamp.vue'
+import GroupedInput from './getcandyhub/components/forms/GroupedInput.vue'
+import HandleInput from './getcandyhub/components/forms/HandleInput.vue'
+import HubIndex from './getcandyhub/pages/index.vue'
+import ImageUpload from './getcandyhub/components/forms/ImageUpload.vue'
 import LanguagePicker from './getcandyhub/components/hub/LanguagePicker.vue'
+import LinkInput from './getcandyhub/components/forms/LinkInput.vue'
 import LoadingSpinner from './getcandyhub/components/hub/LoadingSpinner.vue'
 import LocalisedAttributes from './getcandyhub/components/hub/LocalisedAttributes.vue'
+import Login from './getcandyhub/pages/Login.vue'
+import MainNav from './getcandyhub/components/global/MainNav.vue'
 import MediaManager from './getcandyhub/components/hub/MediaManager.vue'
+import PriceField from './getcandyhub/components/forms/PriceField.vue'
+import PriceInput from './getcandyhub/components/forms/PriceInput.vue'
 import ProductSelectorTable from './getcandyhub/components/hub/ProductSelectorTable.vue'
 import QuickViewPanel from './getcandyhub/components/hub/QuickViewPanel.vue'
-import SearchTable from './getcandyhub/components/hub/SearchTable.vue'
-import SimpleModal from './getcandyhub/components/hub/SimpleModal.vue'
-import UrlManager from './getcandyhub/components/hub/UrlManager.vue'
-import VersionHistory from './getcandyhub/components/hub/VersionHistory.vue'
-import Toolbar from './getcandyhub/components/toolbar/Toolbar.vue'
-import ThumbnailLoader from './getcandyhub/components/utils/ThumbnailLoader.vue'
-import Login from './getcandyhub/pages/Login.vue'
+import RadioCheckbox from './getcandyhub/components/forms/RadioCheckbox.vue'
 import ReycleBinIndex from './getcandyhub/pages/recycle-bin/index.vue'
 import ReycleBinShow from './getcandyhub/pages/recycle-bin/_id.vue'
-import ApiSettingsHandle from './getcandyhub/pages/settings/api/_handle.vue'
-import AttributeGroupsIndex from './getcandyhub/pages/settings/attribute-groups/index.vue'
-import AttributeGroupsShow from './getcandyhub/pages/settings/attribute-groups/_id.vue'
-import AttributesIndex from './getcandyhub/pages/settings/attributes/index.vue'
-import AttributesShow from './getcandyhub/pages/settings/attributes/_id.vue'
-import HubIndex from './getcandyhub/pages/index.vue'
+import RichText from './getcandyhub/components/forms/RichText.vue'
+import SearchTable from './getcandyhub/components/hub/SearchTable.vue'
+import SelectInput from './getcandyhub/components/forms/SelectInput.vue'
+import SideNav from './getcandyhub/components/global/SideNav.vue'
+import SimpleModal from './getcandyhub/components/hub/SimpleModal.vue'
+import ThumbnailLoader from './getcandyhub/components/utils/ThumbnailLoader.vue'
+import Toolbar from './getcandyhub/components/toolbar/Toolbar.vue'
+import TopBar from './getcandyhub/components/global/TopBar.vue'
+import UrlManager from './getcandyhub/components/hub/UrlManager.vue'
+import VersionHistory from './getcandyhub/components/hub/VersionHistory.vue'
+import YoutubeUploader from './getcandyhub/components/forms/YoutubeUploader.vue'
 import { state, mutations, actions } from './getcandyhub/store/index.js';
 
-Vue.component('create-attribute', CreateAttribute)
-Vue.component('external-asset-uploader', ExternalAssetUploader)
-Vue.component('file-upload', FileUpload)
-Vue.component('form-field', FormField)
-Vue.component('grouped-input', GroupedInput)
-Vue.component('handle-input', HandleInput)
-Vue.component('image-upload', ImageUpload)
-Vue.component('link-input', LinkInput)
-Vue.component('price-field', PriceField)
-Vue.component('price-input', PriceInput)
-Vue.component('radio-checkbox', RadioCheckbox)
-Vue.component('rich-text', RichText)
-Vue.component('select-input', SelectInput)
-Vue.component('youtube-uploader', YoutubeUploader)
-Vue.component('get-candy-logo', GetCandyLogo)
-Vue.component('get-candy-stamp', GetCandyStamp)
-Vue.component('main-nav', MainNav)
-Vue.component('side-nav', SideNav)
-Vue.component('top-bar', TopBar)
 Vue.component('activity-log', ActivityLog)
 Vue.component('app-notification', AppNotification)
 Vue.component('attribute-translate', AttributeTranslate)
@@ -91,20 +74,40 @@ Vue.component('category-selector-table', CategorySelectorTable)
 Vue.component('channel-manager', ChannelManager)
 Vue.component('click-to-copy', ClickToCopy)
 Vue.component('code-block', CodeBlock)
+Vue.component('create-attribute', CreateAttribute)
+Vue.component('customer-group-manager', CustomerGroupManager)
 Vue.component('draft-tools', DraftTools)
 Vue.component('entry-sidebar', EntrySidebar)
+Vue.component('external-asset-uploader', ExternalAssetUploader)
+Vue.component('file-upload', FileUpload)
+Vue.component('form-field', FormField)
+Vue.component('get-candy-logo', GetCandyLogo)
+Vue.component('get-candy-stamp', GetCandyStamp)
+Vue.component('grouped-input', GroupedInput)
+Vue.component('handle-input', HandleInput)
+Vue.component('image-upload', ImageUpload)
 Vue.component('language-picker', LanguagePicker)
+Vue.component('link-input', LinkInput)
 Vue.component('loading-spinner', LoadingSpinner)
 Vue.component('localised-attributes', LocalisedAttributes)
+Vue.component('main-nav', MainNav)
 Vue.component('media-manager', MediaManager)
+Vue.component('price-field', PriceField)
+Vue.component('price-input', PriceInput)
 Vue.component('product-selector-table', ProductSelectorTable)
 Vue.component('quick-view-panel', QuickViewPanel)
+Vue.component('radio-checkbox', RadioCheckbox)
+Vue.component('rich-text', RichText)
 Vue.component('search-table', SearchTable)
+Vue.component('select-input', SelectInput)
+Vue.component('side-nav', SideNav)
 Vue.component('simple-modal', SimpleModal)
+Vue.component('thumbnail-loader', ThumbnailLoader)
+Vue.component('toolbar', Toolbar)
+Vue.component('top-bar', TopBar)
 Vue.component('url-manager', UrlManager)
 Vue.component('version-history', VersionHistory)
-Vue.component('toolbar', Toolbar)
-Vue.component('thumbnail-loader', ThumbnailLoader)
+Vue.component('youtube-uploader', YoutubeUploader)
 
 Vue.use(VueI18n)
 
@@ -204,11 +207,12 @@ var notifier = {
     }
   }
 
-export default async ({ app, $axios }, inject) => {
+export default async ({ app }, inject) => {
     app.$hooks = new Hookable()
 
     // This is a better way to inject with nuxt
     inject('gc', new GetCandy())
+    inject('plugin', CandyPlugin)
 
     const options = <%= JSON.stringify(options, null, 2) %>
 

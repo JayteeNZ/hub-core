@@ -7,8 +7,9 @@
       </p>
     </b-field>
   </toolbar>
-    <div class="search-table">
-
+    <div v-if="!items.length">
+    </div>
+    <div class="search-table" v-if="items.length">
       <b-table
         @page-change="changePage"
         :data="items"
@@ -64,6 +65,11 @@ export default {
   mixins: [
     HasAttributes
   ],
+  head () {
+    return {
+      title: 'Recycling Bin'
+    }
+  },
   data () {
     return {
       page: 1,

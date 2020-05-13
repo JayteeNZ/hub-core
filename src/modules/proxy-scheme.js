@@ -61,6 +61,7 @@ export default class ProxyScheme {
       axios.setHeader('X-CANDY-HUB', true)
 
       this.$auth.ctx.app.$gc.setHttp(axios)
+      this.$auth.ctx.app.$getcandy.setHost('http://sfs.test')
 
       var newToken = token;
       this.$auth.ctx.app.$getcandy.setToken(newToken.replace('Bearer ', ''))
