@@ -7,8 +7,9 @@
       </p>
     </b-field>
   </toolbar>
-    <div class="search-table">
-
+    <div v-if="!items.length">
+    </div>
+    <div class="search-table" v-if="items.length">
       <b-table
         @page-change="changePage"
         :data="items"
@@ -58,12 +59,17 @@
 
 <script>
 import { debounce } from 'lodash'
-import HasAttributes from '@getcandyhub/core/src/mixins/HasAttributes'
+import HasAttributes from '@getcandy/hub-core/src/mixins/HasAttributes'
 
 export default {
   mixins: [
     HasAttributes
   ],
+  head () {
+    return {
+      title: 'Recycling Bin'
+    }
+  },
   data () {
     return {
       page: 1,

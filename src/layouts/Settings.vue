@@ -53,7 +53,7 @@
 </template>
 
 <script>
-  import DefaultLayout from '@getcandyhub/core/src/layouts/Default.vue'
+  import DefaultLayout from '@getcandy/hub-core/src/layouts/Default.vue'
   import { map, get, debounce } from 'lodash'
   export default {
     components: {

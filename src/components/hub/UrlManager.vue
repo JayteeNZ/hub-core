@@ -65,8 +65,8 @@
 
 <script>
   import { filter, each, first, debounce } from 'lodash'
-  import HubPage from '@getcandyhub/core/src/mixins/HubPage'
-  import HandlesForms from '@getcandyhub/core/src/mixins/HandlesForms.js'
+  import HubPage from '@getcandy/hub-core/src/mixins/HubPage'
+  import HandlesForms from '@getcandy/hub-core/src/mixins/HandlesForms.js'
 
   export default {
     props: {

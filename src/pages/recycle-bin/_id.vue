@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import HasAttributes from '@getcandyhub/core/src/mixins/HasAttributes'
+import HasAttributes from '@getcandy/hub-core/src/mixins/HasAttributes'
 import ProductType from './types/ProductType.vue'
 
 export default {

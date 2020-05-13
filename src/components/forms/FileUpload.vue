@@ -23,7 +23,7 @@
 
 <script>
 import { filter } from 'lodash'
-import UppyGetcandy from '@getcandyhub/core/src/modules/UppyGetCandy'
+import UppyGetcandy from '@getcandy/hub-core/src/modules/UppyGetCandy'
 const Uppy = require('@uppy/core')
 const DragDrop = require('@uppy/drag-drop')
 const ProgressBar = require('@uppy/progress-bar')

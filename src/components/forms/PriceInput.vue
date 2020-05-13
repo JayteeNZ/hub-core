@@ -9,7 +9,7 @@
 
 <script>
 import { debounce } from 'lodash'
-import HasCurrencies from '@getcandyhub/core/src/mixins/HasCurrencies.js'
+import HasCurrencies from '@getcandy/hub-core/src/mixins/HasCurrencies.js'
 export default {
   mixins: [
     HasCurrencies

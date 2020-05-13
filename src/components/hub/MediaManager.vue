@@ -54,7 +54,7 @@
         <table class="table is-fullwidth">
           <thead>
             <tr>
-              <th />
+              <th v-if="getFilteredResults.length > 1" />
               <th>
                 <b-tooltip
                   :label="$t('Set the main image for this product')"
@@ -80,7 +80,7 @@
           </tfoot>
           <tbody v-sortable="sortableOptions">
             <tr v-for="(asset, index) in getFilteredResults" :key="asset.id">
-              <td class="handle">
+              <td class="handle" v-if="getFilteredResults.length > 1">
                 <svg width="13px" viewBox="0 0 13 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                   <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
                     <g id="Artboard" fill="#D8D8D8">

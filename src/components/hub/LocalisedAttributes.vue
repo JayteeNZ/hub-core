@@ -14,13 +14,13 @@
         v-if="(['text', 'number', 'textarea']).includes(attribute.type)"
       />
       <template v-if="attribute.type == 'select'">
-        <b-autocomplete
+        <!-- <b-autocomplete
           :value="getValue(attribute.handle)"
           @input="setValue(attribute.handle, $event)"
           :placeholder="data[attribute.handle][fallbackChannel][fallbackLanguage]"
           :data="attribute.lookups"
           :open-on-focus="true"
-        />
+        /> -->
       </template>
       <b-switch
         :value="getValue(attribute.handle)"

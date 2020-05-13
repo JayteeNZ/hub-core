@@ -65,8 +65,8 @@
 
 <script>
   import { find } from 'lodash'
-  import HasLocalisedValues from '@getcandyhub/core/src/mixins/HasLocalisedValues.js'
-  import HasAttributes from '@getcandyhub/core/src/mixins/HasAttributes.js'
+  import HasLocalisedValues from '@getcandy/hub-core/src/mixins/HasLocalisedValues.js'
+  import HasAttributes from '@getcandy/hub-core/src/mixins/HasAttributes.js'
 
   export default {
     mixins: [

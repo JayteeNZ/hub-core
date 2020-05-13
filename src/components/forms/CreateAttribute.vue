@@ -70,8 +70,8 @@
 </template>
 
 <script>
-  import HasLocalisedValues from '@getcandyhub/core/src/mixins/HasLocalisedValues'
-  import HandlesForms from '@getcandyhub/core/src/mixins/HandlesForms'
+  import HasLocalisedValues from '@getcandy/hub-core/src/mixins/HasLocalisedValues'
+  import HandlesForms from '@getcandy/hub-core/src/mixins/HandlesForms'
 
   export default {
     mixins: [

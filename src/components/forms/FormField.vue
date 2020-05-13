@@ -2,7 +2,7 @@
   <div class="mb-4">
     <header class="mb-1 text-gray-700 text-sm" v-if="label">
       <label class="font-bold ">{{ $t(label) }} <sup v-if="required" class="text-red-500">*</sup></label>
-      <p v-if="instructions" class="text-xs text-gray-600 my-1">{{ instructions }}</p>
+      <p v-if="instructions" class="text-xs text-gray-600 my-1" v-html="instructions"></p>
     </header>
     <div>
       <slot />
