@@ -37,7 +37,7 @@
 
 <script>
   const truncate = require('lodash/truncate')
-  import { HasAttributes } from '@getcandyhub/core/src/mixins/Index.js'
+  import { HasAttributes } from '@getcandy/hub-core/src/mixins/Index.js'
 
   export default {
     props: {

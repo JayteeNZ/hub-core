@@ -58,7 +58,7 @@
 
 <script>
 import { debounce } from 'lodash'
-import HasAttributes from '@getcandyhub/core/src/mixins/HasAttributes'
+import HasAttributes from '@getcandy/hub-core/src/mixins/HasAttributes'
 
 export default {
   mixins: [

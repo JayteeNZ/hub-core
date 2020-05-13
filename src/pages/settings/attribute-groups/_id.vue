@@ -85,7 +85,7 @@
 <script>
   const get = require('lodash/get')
   const each = require('lodash/each')
-  import HasLocalisedValues from '@getcandyhub/core/src/mixins/HasLocalisedValues'
+  import HasLocalisedValues from '@getcandy/hub-core/src/mixins/HasLocalisedValues'
 
   export default {
     layout: 'settings',

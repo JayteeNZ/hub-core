@@ -143,7 +143,7 @@
 
 <script>
 import { filter, get, find, first } from 'lodash'
-import NormalizesOBjects from '@getcandyhub/core/src/mixins/NormalizesObjects.js'
+import NormalizesOBjects from '@getcandy/hub-core/src/mixins/NormalizesObjects.js'
 
 export default {
   mixins: [

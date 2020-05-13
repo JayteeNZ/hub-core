@@ -103,8 +103,8 @@
 const get = require('lodash/get')
 const map = require('lodash/map')
 const each = require('lodash/each')
-import HandlesForms from '@getcandyhub/core/src/mixins/HandlesForms.js'
-import HubPage from '@getcandyhub/core/src/mixins/HubPage.js'
+import HandlesForms from '@getcandy/hub-core/src/mixins/HandlesForms.js'
+import HubPage from '@getcandy/hub-core/src/mixins/HubPage.js'
 
 export default {
   layout: 'settings',
