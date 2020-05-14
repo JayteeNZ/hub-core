@@ -60,12 +60,16 @@ import SimpleModal from './getcandyhub/components/hub/SimpleModal.vue'
 import ThumbnailLoader from './getcandyhub/components/utils/ThumbnailLoader.vue'
 import Toolbar from './getcandyhub/components/toolbar/Toolbar.vue'
 import TopBar from './getcandyhub/components/global/TopBar.vue'
+import Toggle from './getcandyhub/components/forms/Toggle.vue'
 import UrlManager from './getcandyhub/components/hub/UrlManager.vue'
 import VersionHistory from './getcandyhub/components/hub/VersionHistory.vue'
+import Button from './getcandyhub/components/forms/Button.vue'
 import YoutubeUploader from './getcandyhub/components/forms/YoutubeUploader.vue'
 import { state, mutations, actions } from './getcandyhub/store/index.js';
 
 Vue.component('activity-log', ActivityLog)
+Vue.component('gc-button', Button)
+Vue.component('toggle', Toggle)
 Vue.component('app-notification', AppNotification)
 Vue.component('attribute-translate', AttributeTranslate)
 Vue.component('auto-complete', AutoComplete)

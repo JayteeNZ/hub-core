@@ -96,7 +96,8 @@
               </td>
               <td>
                 <div class="field">
-                  <b-switch v-model="asset.primary" v-if="getThumbnail(asset)" @click="setPrimary(asset)" />
+                  <toggle v-model="asset.primary" v-if="getThumbnail(asset)" @click="setPrimary(asset)" />
+                  <!-- <b-switch v-model="asset.primary" v-if="getThumbnail(asset)" @click="setPrimary(asset)" /> -->
                 </div>
               </td>
               <td>

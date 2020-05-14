@@ -19,6 +19,8 @@ export default function (moduleOptions) {
         'components/forms/RichText.vue',
         'components/forms/SelectInput.vue',
         'components/forms/YoutubeUploader.vue',
+        'components/forms/Toggle.vue',
+        'components/forms/Button.vue',
 
         // Global components
         'components/global/GetCandyLogo.vue',
