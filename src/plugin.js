@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Hookable from 'hable'
 import VueI18n from 'vue-i18n'
-import GetCandy from '@getcandy/js-client'
+import GetCandy from '@getcandy/node-client'
 import Buefy from 'buefy'
 import 'remixicon/fonts/remixicon.css'
 import moment from 'moment'
