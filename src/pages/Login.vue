@@ -126,13 +126,23 @@ export default {
           this.message = 'You are not authorised to access the hub'
         }
       } catch (e) {
-        const response = e.response.data
-        this.processing = false
-        if (response.errors) {
-          this.errors = response.errors
+        if (e.response) {
+          const response = e.response.data
+          if (response.errors) {
+            this.errors = response.errors
+          }
+          this.message = response.error || response.message
+        } else {
+          if (window.console) {
+            console.error(e)
+            this.message = 'Something went wrong, check the console for more info.'
+          } else {
+            this.message = 'Something went wrong'
+          }
+
         }
-        this.message = response.error || response.message
       }
+      this.processing = false
     },
     getType (field) {
       if (this.errors[field] && this.errors[field].length) {

@@ -64,7 +64,6 @@ export default class ProxyScheme {
 
       var newToken = token;
       this.$auth.ctx.app.$getcandy.setToken(newToken.replace('Bearer ', ''))
-
       this.$auth.ctx.app.$getcandy.setDefaultHeaders({
         'X-CANDY-HUB': true
       })

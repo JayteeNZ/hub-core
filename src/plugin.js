@@ -42,6 +42,7 @@ import LinkInput from './getcandyhub/components/forms/LinkInput.vue'
 import LoadingSpinner from './getcandyhub/components/hub/LoadingSpinner.vue'
 import LocalisedAttributes from './getcandyhub/components/hub/LocalisedAttributes.vue'
 import Login from './getcandyhub/pages/Login.vue'
+import Account from './getcandyhub/pages/Account.vue'
 import MainNav from './getcandyhub/components/global/MainNav.vue'
 import MediaManager from './getcandyhub/components/hub/MediaManager.vue'
 import PriceField from './getcandyhub/components/forms/PriceField.vue'
@@ -298,6 +299,11 @@ import HubIndex from './getcandyhub/pages/index.vue'
         path: '/',
         name: 'index',
         component: HubIndex
-    }
+    },
+    {
+      path: '/account',
+      name: 'account',
+      component: Account
+  }
   ])
 }
