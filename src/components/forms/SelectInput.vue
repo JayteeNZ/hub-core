@@ -1,6 +1,6 @@
 <template>
     <div class="relative">
-      <select :disabled="disabled" @change="$emit('input', $event.target.value)" :value="value" class="disabled:opacity-75 disabled:cursor-not-allowed appearance-none w-full bg-white shadow-sm border border-gray-300 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500" id="grid-state">
+      <select :disabled="disabled" @change="$emit('input', $event.target.value)" :value="value" class="disabled:opacity-75 disabled:cursor-not-allowed appearance-none w-full form-input pr-8 rounded leading-tight" id="grid-state">
         <slot />
       </select>
       <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">

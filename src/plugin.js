@@ -9,6 +9,7 @@ import currency from 'currency.js'
 import CandyPlugin from './getcandyhub/modules/CandyPlugin.js'
 import numeral from 'numeral'
 
+import Account from './getcandyhub/pages/Account.vue'
 import ActivityLog from './getcandyhub/components/hub/ActivityLog.vue'
 import ApiSettingsHandle from './getcandyhub/pages/settings/api/_handle.vue'
 import AppNotification from './getcandyhub/components/hub/AppNotification.vue'
@@ -19,6 +20,7 @@ import AttributesIndex from './getcandyhub/pages/settings/attributes/index.vue'
 import AttributesShow from './getcandyhub/pages/settings/attributes/_id.vue'
 import AutoComplete from './getcandyhub/components/hub/AutoComplete.vue'
 import BasicTranslate from './getcandyhub/components/hub/BasicTranslate.vue'
+import Button from './getcandyhub/components/forms/Button.vue'
 import CandyModal from './getcandyhub/components/hub/CandyModal.vue'
 import CategorySelectorTable from './getcandyhub/components/hub/CategorySelectorTable.vue'
 import ChannelManager from './getcandyhub/components/hub/ChannelManager.vue'
@@ -37,12 +39,12 @@ import GroupedInput from './getcandyhub/components/forms/GroupedInput.vue'
 import HandleInput from './getcandyhub/components/forms/HandleInput.vue'
 import HubIndex from './getcandyhub/pages/index.vue'
 import ImageUpload from './getcandyhub/components/forms/ImageUpload.vue'
+import Input from './getcandyhub/components/forms/Input.vue'
 import LanguagePicker from './getcandyhub/components/hub/LanguagePicker.vue'
 import LinkInput from './getcandyhub/components/forms/LinkInput.vue'
 import LoadingSpinner from './getcandyhub/components/hub/LoadingSpinner.vue'
 import LocalisedAttributes from './getcandyhub/components/hub/LocalisedAttributes.vue'
 import Login from './getcandyhub/pages/Login.vue'
-import Account from './getcandyhub/pages/Account.vue'
 import MainNav from './getcandyhub/components/global/MainNav.vue'
 import MediaManager from './getcandyhub/components/hub/MediaManager.vue'
 import PriceField from './getcandyhub/components/forms/PriceField.vue'
@@ -58,21 +60,19 @@ import SelectInput from './getcandyhub/components/forms/SelectInput.vue'
 import SideNav from './getcandyhub/components/global/SideNav.vue'
 import SimpleModal from './getcandyhub/components/hub/SimpleModal.vue'
 import ThumbnailLoader from './getcandyhub/components/utils/ThumbnailLoader.vue'
+import Toggle from './getcandyhub/components/forms/Toggle.vue'
 import Toolbar from './getcandyhub/components/toolbar/Toolbar.vue'
 import TopBar from './getcandyhub/components/global/TopBar.vue'
-import Toggle from './getcandyhub/components/forms/Toggle.vue'
 import UrlManager from './getcandyhub/components/hub/UrlManager.vue'
 import VersionHistory from './getcandyhub/components/hub/VersionHistory.vue'
-import Button from './getcandyhub/components/forms/Button.vue'
 import YoutubeUploader from './getcandyhub/components/forms/YoutubeUploader.vue'
 import { state, mutations, actions } from './getcandyhub/store/index.js';
 
 Vue.component('activity-log', ActivityLog)
-Vue.component('gc-button', Button)
-Vue.component('toggle', Toggle)
 Vue.component('app-notification', AppNotification)
 Vue.component('attribute-translate', AttributeTranslate)
 Vue.component('auto-complete', AutoComplete)
+Vue.component('b-input', Input)
 Vue.component('basic-translate', BasicTranslate)
 Vue.component('candy-modal', CandyModal)
 Vue.component('category-selector-table', CategorySelectorTable)
@@ -86,6 +86,7 @@ Vue.component('entry-sidebar', EntrySidebar)
 Vue.component('external-asset-uploader', ExternalAssetUploader)
 Vue.component('file-upload', FileUpload)
 Vue.component('form-field', FormField)
+Vue.component('gc-button', Button)
 Vue.component('get-candy-logo', GetCandyLogo)
 Vue.component('get-candy-stamp', GetCandyStamp)
 Vue.component('grouped-input', GroupedInput)
@@ -108,6 +109,7 @@ Vue.component('select-input', SelectInput)
 Vue.component('side-nav', SideNav)
 Vue.component('simple-modal', SimpleModal)
 Vue.component('thumbnail-loader', ThumbnailLoader)
+Vue.component('toggle', Toggle)
 Vue.component('toolbar', Toolbar)
 Vue.component('top-bar', TopBar)
 Vue.component('url-manager', UrlManager)

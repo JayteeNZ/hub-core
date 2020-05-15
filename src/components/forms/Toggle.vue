@@ -24,8 +24,8 @@ export default {
     props: ['value'],
     methods: {
         handleClick () {
-            this.$emit('input', !this.value)
-            this.$emit('click')
+          this.$emit('input', !this.value)
+          this.$emit('click')
         }
     }
 }

@@ -21,6 +21,7 @@ export default function (moduleOptions) {
         'components/forms/YoutubeUploader.vue',
         'components/forms/Toggle.vue',
         'components/forms/Button.vue',
+        'components/forms/Input.vue',
 
         // Global components
         'components/global/GetCandyLogo.vue',

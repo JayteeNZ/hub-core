@@ -15,33 +15,15 @@
         <language-picker v-model="language" v-show="translating" />
       </div>
     </div>
-    <div class="flex">
-      <div :class="{
-        'w-full': !translating,
-        'w-1/2 mr-2': translating
-      }">
-        <div class="mb-4" v-for="(field, handle) in fields" :key="handle">
-          <header class="mb-2 text-sm">
-            <label class="font-bold text-gray-700 block">{{ $t(capitalize(handle)) }}</label>
-          </header>
-          <div>
-            <b-input v-model="field.values[locale]" :disabled="locked" />
-          </div>
-        </div>
-      </div>
-      <div :class="{
-        'w-full': !translating,
-        'w-1/2 ml-2': translating
-      }" v-if="translating">
-        <div class="mb-4" v-for="(field, handle) in fields" :key="handle" >
-          <header class="mb-2 text-sm">
-            <label class="font-bold text-gray-700 block">{{ $t(capitalize(handle)) }}</label>
-          </header>
-          <div>
-            <b-input v-model="field.values[language]" :placeholder="field.values[locale]" :disabled="locked" />
-          </div>
-        </div>
-      </div>
+    <div class="md:grid  md:gap-6" :class="translating ? 'md:grid-cols-2' : 'md:grid-cols-1'">
+      <form-field :label="`${$t(capitalize(handle))}${translating ? ` (${locale})` : '' }`" v-for="(field, handle) in fields" :key="handle">
+        <b-input v-model="field.values[locale]" :disabled="locked" @blur="$emit('input', value)" />
+      </form-field>
+      <template  v-if="translating">
+        <form-field :label="`${$t(capitalize(handle))} (${language})`" v-for="(field, handle) in fields" :key="handle">
+          <b-input v-model="field.values[language]" :placeholder="field.values[locale]" :disabled="locked || language == locale" @blur="$emit('input', fields)" />
+        </form-field>
+      </template>
     </div>
   </div>
 </template>

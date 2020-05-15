@@ -18,7 +18,9 @@
 <script>
 const themes = {
     'base': 'disabled:cursor-not-allowed inline-flex items-center border border-transparent font-medium rounded-md  focus:outline-none transition ease-in-out duration-150',
-    'default': 'text-white bg-indigo-600 hover:bg-indigo-500 focus:border-indigo-700 focus:shadow-outline-indigo active:bg-indigo-700',
+    'default': 'text-green-600 border-green-300 bg-white hover:bg-green-50 focus:border-green-700 focus:shadow-outline-green active:bg-white',
+    'gray': 'text-gray-700 border-gray-400 hover:bg-gray-200 focus:border-gray-700 focus:shadow-outline-gray',
+    'danger': 'text-white bg-red-600 hover:bg-red-500 focus:border-red-700 focus:shadow-outline-red active:bg-red-700',
     'outline': 'border border-gray-300 text-gray-700 bg-white hover:text-gray-500 focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50'
 }
 const sizes = {
