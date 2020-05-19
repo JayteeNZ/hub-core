@@ -10,6 +10,7 @@
                 'pl-7': $slots.prefix
             }"
             class="form-input block w-full sm:text-sm sm:leading-5 disabled:bg-gray-100"
+            :type="type"
             :placeholder="placeholder"
         />
         <slot name="suffix" />
