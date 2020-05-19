@@ -23,6 +23,13 @@
       <template slot-scope="props">
         <slot v-bind="props" />
       </template>
+      <template slot="empty">
+        <section class="section">
+          <div class="content has-text-grey has-text-centered">
+            <p>Nothing here.</p>
+          </div>
+        </section>
+      </template>
     </b-table>
   </div>
 </template>
