@@ -1,6 +1,5 @@
 import path from 'path'
 
-// import VuePlugin from '../dist/getcandyhubcore.umd.js'
 
 export default function (moduleOptions) {
     const templates = [
@@ -97,7 +96,8 @@ export default function (moduleOptions) {
         'pages/index.vue',
 
         // Modules
-        'modules/CandyPlugin.js'
+        'modules/CandyPlugin.js',
+        'modules/HubUser.js',
     ];
 
     templates.forEach((template) => {
@@ -112,7 +112,10 @@ export default function (moduleOptions) {
     this.addLayout(path.resolve(__dirname, 'layouts/Error.vue'), 'error')
     this.addLayout(path.resolve(__dirname, 'layouts/Settings.vue'), 'settings')
 
-  this.addPlugin(path.resolve(__dirname, 'plugin.js'))
+    this.addPlugin({
+        src: path.resolve(__dirname, 'plugin.js'),
+        options: moduleOptions
+    })
 }
 
 module.exports.meta = require('../package.json')

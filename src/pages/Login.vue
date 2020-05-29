@@ -90,6 +90,11 @@ export default {
       title: this.$t('Login')
     }
   },
+  computed: {
+    config () {
+      return this.$config
+    }
+  },
   methods: {
     async forgot () {
       const response = await this.$gc.generic.post('password/reset/request', {
@@ -108,7 +113,16 @@ export default {
       this.message = null
       this.processing = true
       try {
-        await this.$auth.loginWith('proxy', {
+        if (this.config.auth == 'sanctum') {
+          await this.$axios
+            .get('/sanctum/csrf-cookie', {
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              withCredentials: true
+            })
+        }
+        await this.$auth.loginWith('local', {
           data: {
             email: this.email,
             password: this.password
