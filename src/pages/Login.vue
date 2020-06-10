@@ -21,10 +21,10 @@
                 <b-icon icon="loader-4-line" class="spin" v-if="processing" />
                 <span v-else>{{ $t(forgotPassword ? 'Send reset email' : 'Sign in') }}</span>
               </button>
-              <button @click="forgotPassword = !forgotPassword" type="button" class="text-sm ml-2 focus:outline-none">
+              <!-- <button @click="forgotPassword = !forgotPassword" type="button" class="text-sm ml-2 focus:outline-none">
                 <span v-if="!forgotPassword">Forgot password</span>
                 <span v-else>Back to login</span>
-              </button>
+              </button> -->
             </div>
             <b-message class="error-message" v-if="message" type="is-danger">
               {{ message }}
@@ -77,8 +77,8 @@ export default {
   layout: 'auth',
   data () {
     return {
-      email: 'alec@neondigital.co.uk',
-      password: null,
+      email: '',
+      password: '',
       message: null,
       processing: false,
       forgotPassword: false,
@@ -88,6 +88,11 @@ export default {
   head () {
     return {
       title: this.$t('Login')
+    }
+  },
+  computed: {
+    config () {
+      return this.$config
     }
   },
   methods: {
@@ -108,7 +113,16 @@ export default {
       this.message = null
       this.processing = true
       try {
-        await this.$auth.loginWith('proxy', {
+        if (this.config.auth == 'sanctum') {
+          await this.$axios
+            .get('/sanctum/csrf-cookie', {
+              headers: {
+                'X-Requested-With': 'XMLHttpRequest'
+              },
+              withCredentials: true
+            })
+        }
+        await this.$auth.loginWith('local', {
           data: {
             email: this.email,
             password: this.password
