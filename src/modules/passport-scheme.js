@@ -1,5 +1,5 @@
 import HubUser from '@getcandy/hub-core/src/modules/HubUser.js'
-export default class ProxyScheme {
+export default class PassportScheme {
   constructor (auth, options) {
     this.$auth = auth
     this.name = options._name
