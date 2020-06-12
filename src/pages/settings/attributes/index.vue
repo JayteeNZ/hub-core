@@ -88,7 +88,6 @@ export default {
         per_page: this.perPage
       })
 
-      // console.log(response);
       const data = response.data.data
       const meta = response.data.meta
 
