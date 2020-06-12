@@ -113,16 +113,20 @@
       loadData() {
         this.loading = true;
 
-        this.$getcandy.on('Search').getSearch({
-          searchType: this.type,
-          include: this.includes,
-          page: this.page,
-          sort: this.sort,
-          perPage: this.perPage,
-          keywords: this.externalTerm || this.searchTerm
-        }).then(response => {
+        // channel, category, page, searchType, keywords, rank, idsOnly, include, sort, options = {
 
-          this.data = response.data
+        this.$getcandy.on('Search').getSearch(
+          this.channel,
+          null,
+          this.page,
+          this.type,
+          this.externalTerm || this.searchTerm,
+          false,
+          false,
+          this.includes,
+          this.sort
+        ).then(response => {
+          this.data = response.data.data
           this.loading = false;
           const meta = response.meta
           const pagination = meta.pagination.data

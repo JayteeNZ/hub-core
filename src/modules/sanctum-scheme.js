@@ -24,8 +24,6 @@ export default class SanctumScheme extends LocalScheme {
 
     const hubUser = new HubUser(user)
 
-    console.log(hubUser)
-
     if (!hubUser.hasRole('admin') && !hubUser.can('access_hub')) {
       await this.logout()
       return

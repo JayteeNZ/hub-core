@@ -114,13 +114,7 @@ export default {
       this.processing = true
       try {
         if (this.config.auth == 'sanctum') {
-          await this.$axios
-            .get('/sanctum/csrf-cookie', {
-              headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-              },
-              withCredentials: true
-            })
+          await this.$axios.get('/sanctum/csrf-cookie')
         }
         await this.$auth.loginWith('local', {
           data: {
