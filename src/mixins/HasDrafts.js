@@ -12,7 +12,7 @@ export default {
     }
   },
   methods: {
-    async createDraft (type, id, config = {}) {
+    async createDraft (type, id, config = {}, context) {
       // If we're already a draft, then don't worry.
       if (this.isDraft || this.creatingDraft) {
         if (config.alreadyDrafted) {
@@ -24,7 +24,7 @@ export default {
       this.creatingDraft = true;
 
       const response = await this.$store.dispatch(`${type}/createDraft`, {
-        context: this.$gc,
+        context: context || this.$gc,
         id: id,
       })
 
