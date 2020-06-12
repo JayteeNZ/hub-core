@@ -333,9 +333,7 @@ export default {
     deleteAsset (event) {
       const asset = this.assetToDelete;
       this.$getcandy.on('Assets').postAssetsAssetIdDetachOwnerId(asset.id, this.parentId, {
-        assetDetachBody: {
-          type: asset.type
-        }
+        type: asset.type
       }).then(response => {
         this.assets.splice(this.deletedIndex, 1)
         this.assetToDelete = {}
