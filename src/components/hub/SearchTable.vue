@@ -128,8 +128,9 @@
         ).then(response => {
           this.data = response.data.data
           this.loading = false;
-          const meta = response.meta
+          const meta = response.data.meta
           const pagination = meta.pagination.data
+
           this.total = pagination.total
           this.perPage = pagination.per_page
           this.page = pagination.current_page;
