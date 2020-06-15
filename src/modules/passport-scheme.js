@@ -11,14 +11,6 @@ export default class PassportScheme {
       const axios = this.$auth.ctx.app.$axios
       axios.setHeader(this.options.tokenName, token)
       axios.setHeader('X-CANDY-HUB', true)
-
-      this.$auth.ctx.app.$gc.setHttp(axios)
-
-      var newToken = token;
-      this.$auth.ctx.app.$getcandy.setToken(newToken.replace('Bearer ', ''))
-      this.$auth.ctx.app.$getcandy.setDefaultHeaders({
-        'X-CANDY-HUB': true
-      })
     }
   }
 
