@@ -112,6 +112,7 @@
 </template>
 
 <script>
+const debounce = require('lodash/debounce')
 import { Editor, EditorContent, EditorMenuBar } from 'tiptap'
 import {
   Blockquote,
@@ -154,13 +155,15 @@ export default {
         new Underline(),
         new History(),
       ],
-      onUpdate: ({ getHTML }) => {
+      onUpdate: debounce(({ getHTML }) => {
         this.$emit('input', getHTML())
         this.$emit('change', getHTML())
-      }
+      }, 300)
     })
     if (this.value) {
-      this.editor.setContent(this.value);
+      this.editor.setContent(this.value, false, {
+        preserveWhitespace: true
+      });
     }
   },
   data() {
@@ -170,7 +173,9 @@ export default {
   },
   watch: {
     value (val) {
-      this.editor.setContent(val);
+      this.editor.setContent(val, false, {
+        preserveWhitespace: true
+      });
     }
   },
   beforeDestroy () {
