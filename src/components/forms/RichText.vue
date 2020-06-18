@@ -155,20 +155,25 @@ export default {
         new Underline(),
         new History(),
       ],
-      onUpdate: debounce(({ getHTML }) => {
-        this.$emit('input', getHTML())
-        this.$emit('change', getHTML())
-      }, 300)
+      onUpdate: ({ getHTML }) => {
+        this.content = getHTML()
+      },
+      onBlur: () => {
+        this.$emit('input', this.content)
+        this.$emit('change', this.content)
+      }
     })
     if (this.value) {
-      this.editor.setContent(this.value, false, {
+      this.content = this.value
+      this.editor.setContent(this.content, false, {
         preserveWhitespace: true
       });
     }
   },
   data() {
     return {
-      editor: null
+      editor: null,
+      content: null
     }
   },
   watch: {
