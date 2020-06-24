@@ -110,30 +110,30 @@
       handleMouseEnter(e) {
         this.$emit('mouseenter', e)
       },
-      loadData() {
+      async loadData() {
         this.loading = true;
 
         // channel, category, page, searchType, keywords, rank, idsOnly, include, sort, options = {
 
-        this.$getcandy.on('Search').getSearch(
-          this.channel,
-          null,
-          this.page,
-          this.type,
-          this.externalTerm || this.searchTerm,
-          false,
-          false,
-          this.includes,
-          this.sort
-        ).then(response => {
-          this.data = response.data.data
-          this.loading = false;
-          const meta = response.data.meta
-          const pagination = meta.pagination.data
+        try {
+          const response = await this.$getcandy.on('Search').getSearch(
+            this.channel,
+            null,
+            this.page,
+            this.type,
+            this.externalTerm || this.searchTerm,
+            false,
+            false,
+            this.includes,
+            this.sort,
+            true
+          )
 
-          this.total = pagination.total
-          this.perPage = pagination.per_page
-          this.page = pagination.current_page;
+          this.data = response.data.data
+          const meta = response.data.meta
+          this.total = meta.total
+          this.perPage = meta.per_page
+          this.page = meta.current_page;
 
           this.$emit('loaded', this.data)
 
@@ -147,7 +147,10 @@
               page: this.page
             }
           })
-        })
+        } catch (e) {
+
+        }
+        this.loading = false
       }
     }
   }
