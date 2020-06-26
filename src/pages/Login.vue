@@ -32,7 +32,7 @@
           </form>
       </div>
       <div class="login-image hidden lg:block w-full h-screen">
-        <img src="sweet-jar.jpg" />
+
       </div>
     </div>
 
