@@ -26,50 +26,17 @@
                 <span v-else>Back to login</span>
               </button> -->
             </div>
-            <b-message class="error-message" v-if="message" type="is-danger">
+
+            <div class="text-red-600 mt-4 text-sm" v-if="message">
               {{ message }}
-            </b-message>
+            </div>
           </form>
       </div>
       <div class="login-image hidden lg:block w-full h-screen">
 
       </div>
     </div>
-
   </div>
-  <!-- <v-card class="elevation-12">
-    <v-toolbar
-      color="primary"
-      dark
-      flat
-    >
-      <v-toolbar-title>Login to GetCandy</v-toolbar-title>
-    </v-toolbar>
-    <v-card-text>
-      <v-form>
-        <v-text-field
-          label="Login"
-          name="login"
-          prepend-icon="mdi-account"
-          type="text"
-          v-model="email"
-        ></v-text-field>
-        <v-text-field
-          id="password"
-          label="Password"
-          name="password"
-          prepend-icon="mdi-lock"
-          type="password"
-          v-model="password"
-        ></v-text-field>
-      </v-form>
-      {{ errors }}
-    </v-card-text>
-    <v-card-actions>
-      <v-spacer></v-spacer>
-      <v-btn @click="login" color="primary">Login</v-btn>
-    </v-card-actions>
-  </v-card> -->
 </template>
 
 <script>
@@ -79,7 +46,7 @@ export default {
     return {
       email: '',
       password: '',
-      message: null,
+      message: '',
       processing: false,
       forgotPassword: false,
       errors: {}
@@ -113,9 +80,9 @@ export default {
       this.message = null
       this.processing = true
       try {
-        if (this.config.auth == 'sanctum') {
+        // if (this.config.auth == 'sanctum') {
           await this.$axios.get('/sanctum/csrf-cookie')
-        }
+        // }
         await this.$auth.loginWith('local', {
           data: {
             email: this.email,
@@ -124,9 +91,9 @@ export default {
         })
         if (this.$auth.loggedIn) {
           if (this.$auth.user.area) {
-            this.$router.push({ name: this.$auth.user.area })
+            await this.$router.push({ name: this.$auth.user.area })
           } else {
-            this.$router.back()
+            await this.$router.back()
           }
         } else {
           this.password = null
