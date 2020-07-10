@@ -2,27 +2,27 @@
   <div>
     <div class="flex items-center">
       <div class="mr-2" v-if="previewUrl && isDraft">
-        <a class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-base leading-6 font-medium text-gray-700 shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5" :href="previewUrl" target="_blank" rel="noopener noreferrer">
+        <a class="border border-gray-300 text-gray-700 bg-white hover:text-gray-500 focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 px-4 py-2 text-sm leading-6 border border-gray-300 text-gray-700 bg-white hover:text-gray-500 focus:border-blue-300 focus:shadow-outline-blue active:text-gray-800 active:bg-gray-50 disabled:cursor-not-allowed inline-flex items-center border border-transparent font-medium rounded-md  focus:outline-none transition ease-in-out duration-150" :href="previewUrl" target="_blank" rel="noopener noreferrer">
           {{ $t('Live preview') }}
         </a>
       </div>
       <template v-if="isDraft">
         <div class="mr-2">
-          <button class="inline-flex justify-center w-full rounded-md border border-red-300 px-4 py-2 bg-white text-base leading-6 font-medium text-red-600 shadow-sm hover:text-red-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5" @click="showDiscardConfirm = true">
+          <gc-button @click="showDiscardConfirm = true" theme="danger">
             {{ $t('Discard draft') }}
-          </button>
+          </gc-button>
         </div>
         <div>
-          <button class="inline-flex justify-center w-full rounded-md border border-green-300 px-4 py-2 bg-white text-base leading-6 font-medium text-green-600 shadow-sm hover:text-green-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5" @click="showPublishConfirm = true">
+          <gc-button @click="showPublishConfirm = true">
             {{ $t('Publish changes') }}
-          </button>
+          </gc-button>
         </div>
       </template>
       <template v-else>
         <div>
-          <button @click="showDeleteConfirm = true" class="inline-flex justify-center w-full rounded-md border border-transparent px-1 py-1 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-400 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+          <gc-button @click="showDeleteConfirm = true">
             <b-icon icon="delete-bin-line" />
-          </button>
+          </gc-button>
         </div>
       </template>
       <div class="border-l ml-2 pl-2" v-if="!isDraft">
