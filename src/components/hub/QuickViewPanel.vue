@@ -6,7 +6,7 @@
     >
     <div
       v-if="open && takeover"
-      class="absolute inset-0 opacity-0 bg-gray-900 z-60"
+      class="fixed inset-0 opacity-0 bg-gray-900 z-60"
       @click="$emit('close')"
     />
     </transition>
@@ -15,9 +15,9 @@
       v-on:leave="panelLeave"
     >
     <div class="fixed bg-white right-0 top-0 shadow-2xl z-70 h-full" :class="width" v-if="open">
-      <header class="p-6 pb-4 border-b">
+      <header class="p-6 pb-4 border-b" v-if="heading">
         <div class="flex justify-between">
-          <h3 class="text-lg font-medium" v-if="heading">{{ heading }}</h3>
+          <h3 class="text-lg font-medium" >{{ heading }}</h3>
           <span class="delete" data-dismiss="quickview" @click="$emit('close')"></span>
         </div>
       </header>

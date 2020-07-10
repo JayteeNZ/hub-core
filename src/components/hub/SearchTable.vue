@@ -126,7 +126,12 @@
             false,
             this.includes,
             this.sort,
-            true
+            true,
+            {
+              query: {
+                per_page: this.limit
+              }
+            }
           )
 
           this.data = response.data.data

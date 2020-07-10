@@ -77,7 +77,7 @@
                 <p class="text-gray-600 leading-tight text-xs font-normal">{{ $t('Should this attribute be searchable across GetCandy?') }}</p>
               </header>
               <div>
-                <radio-checkbox v-model="attribute.searchable" :disabled="attribute.system" />
+                <toggle v-model="attribute.searchable" :disabled="attribute.system" />
               </div>
           </div>
           <div class="w-1/3">
@@ -86,7 +86,7 @@
                 <p class="text-gray-600 leading-tight text-xs font-normal">{{ $t('Should this attribute appear in search aggregates?') }}</p>
               </header>
               <div>
-                <radio-checkbox v-model="attribute.filterable" :disabled="attribute.system" />
+                <toggle v-model="attribute.filterable" :disabled="attribute.system" />
               </div>
           </div>
           <div class="w-1/3">
@@ -95,7 +95,7 @@
                 <p class="text-gray-600 leading-tight text-xs font-normal">{{ $t('Admins editing products will not be able to leave this blank') }}</p>
               </header>
               <div>
-                <radio-checkbox v-model="attribute.required" :disabled="attribute.system" />
+                <toggle v-model="attribute.required" :disabled="attribute.system" />
               </div>
           </div>
         </div>

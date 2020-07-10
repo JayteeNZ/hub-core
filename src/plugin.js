@@ -55,6 +55,7 @@ import RadioCheckbox from './getcandyhub/components/forms/RadioCheckbox.vue'
 import ReycleBinIndex from './getcandyhub/pages/recycle-bin/index.vue'
 import ReycleBinShow from './getcandyhub/pages/recycle-bin/_id.vue'
 import RichText from './getcandyhub/components/forms/RichText.vue'
+import Pagination from './getcandyhub/components/hub/Pagination.vue'
 import SearchTable from './getcandyhub/components/hub/SearchTable.vue'
 import SelectInput from './getcandyhub/components/forms/SelectInput.vue'
 import SideNav from './getcandyhub/components/global/SideNav.vue'
@@ -87,6 +88,7 @@ Vue.component('external-asset-uploader', ExternalAssetUploader)
 Vue.component('file-upload', FileUpload)
 Vue.component('form-field', FormField)
 Vue.component('gc-button', Button)
+Vue.component('pagination', Pagination)
 Vue.component('get-candy-logo', GetCandyLogo)
 Vue.component('get-candy-stamp', GetCandyStamp)
 Vue.component('grouped-input', GroupedInput)

@@ -6,8 +6,8 @@
     </header>
     <div>
       <slot />
-      <p v-if="error" class="text-red-600 leading-tight text-xs font-normal">{{ error }}</p>
-      <p v-for="(error, index) in errors" :key="index" class="text-red-600 leading-tight text-xs font-normal">
+      <p v-if="error" class="text-red-600 leading-tight text-xs font-normal mt-1">{{ error }}</p>
+      <p v-for="(error, index) in errors" :key="index" class="text-red-600 leading-tight text-xs font-normal mt-1">
         {{ error }}
       </p>
     </div>

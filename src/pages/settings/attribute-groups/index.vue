@@ -1,9 +1,7 @@
 <template>
   <div>
     <toolbar :heading="$t('Attribute Groups')">
-      <button @click="showCreatePanel = true" class="inline-flex justify-center w-full rounded-md border border-green-300 px-4 py-2 bg-white text-base leading-6 font-medium text-green-600 shadow-sm hover:text-green-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-        {{ $t('Create attribute group') }}
-      </button>
+      <gc-button @click="showCreatePanel = true" size="small">{{ $t('Create attribute group') }}</gc-button>
       <quick-view-panel :heading="$t('Create attribute group')" @close="showCreatePanel = false" :open="showCreatePanel">
         <form  @submit.prevent="create" class="p-6">
           <div class="mb-4">
@@ -43,9 +41,7 @@
             </div>
           </div>
           <footer>
-            <button type="submit" class="justify-center rounded-md bg-purple-600 hover:bg-purple-700  px-4 py-2 text-base leading-6 font-medium text-white shadow-sm focus:outline-none transition ease-in-out duration-150 sm:text-sm sm:leading-5">
-              {{ $t('Create attribute') }}
-            </button>
+            <gc-button type="submit" @click="showCreatePanel = true" size="small">{{ $t('Create attribute group') }}</gc-button>
           </footer>
         </form>
       </quick-view-panel>
