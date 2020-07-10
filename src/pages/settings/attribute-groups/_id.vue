@@ -3,9 +3,10 @@
     <toolbar :heading="$t('Available Groups')" :subHeading="getLocaleValue(group.name)">
       <div class="flex">
         <div>
-          <button @click="save"  class="inline-flex justify-center w-full rounded-md border border-green-300 px-4 py-2 bg-white text-base leading-6 font-medium text-green-600 shadow-sm hover:text-green-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
+          <gc-button @click="save" size="small">{{ $t('Save Changes') }}</gc-button>
+          <!-- <button  class="inline-flex justify-center w-full rounded-md border border-green-300 px-4 py-2 bg-white text-base leading-6 font-medium text-green-600 shadow-sm hover:text-green-500 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">
             {{ $t('Save changes') }}
-          </button>
+          </button> -->
         </div>
         <div class="ml-4">
           <button @click="showDeleteConfirm = true" class="inline-flex justify-center w-full rounded-md border border-transparent px-1 py-1 bg-red-600 text-base leading-6 font-medium text-white shadow-sm hover:bg-red-400 focus:outline-none focus:border-blue-300 focus:shadow-outline transition ease-in-out duration-150 sm:text-sm sm:leading-5">

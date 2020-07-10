@@ -49,6 +49,7 @@ export default function (moduleOptions) {
         'components/hub/MediaManager.vue',
         'components/hub/ProductSelectorTable.vue',
         'components/hub/QuickViewPanel.vue',
+        'components/hub/Pagination.vue',
         'components/hub/SearchTable.vue',
         'components/hub/SimpleModal.vue',
         'components/hub/UrlManager.vue',

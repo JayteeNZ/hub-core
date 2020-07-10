@@ -125,52 +125,33 @@
       handleMouseEnter(e) {
         this.$emit('mouseenter', e)
       },
-      loadData(withFilters = true) {
+      async loadData() {
         this.loading = true;
 
         // channel, category, page, searchType, keywords, rank, idsOnly, include, sort, options = {
 
-        const filters = {}
+        try {
+          const response = await this.$getcandy.on('Search').getSearch(
+            this.channel,
+            null,
+            this.page,
+            this.type,
+            this.externalTerm || this.searchTerm,
+            false,
+            false,
+            this.includes,
+            this.sort,
+            true,
+            {
+              query: {
+                per_page: this.limit
+              }
+            }
+          )
 
-        each(this.filters, (value, handle) => {
-          if (value) {
-            filters[handle] = value
-          }
-        })
-
-        let query = {
-          full_response: true,
-          per_page: this.limit
-        }
-
-        console.log(withFilters);
-
-        if (withFilters) {
-          query = {...query, ...filters}
-        }
-
-        this.$getcandy.on('Search').getSearch(
-          this.channel,
-          null,
-          this.page,
-          this.type,
-          this.externalTerm || this.searchTerm,
-          false,
-          false,
-          this.includes,
-          this.sort,
-          {
-            query: query
-          }
-        ).then(response => {
           this.data = response.data.data
-          this.loading = false;
           const meta = response.data.meta
-
-          this.total = meta.total > 9000 ? 9000 : meta.total
-
-          this.largeDataSet = this.total >= 9000
-
+          this.total = meta.total
           this.perPage = meta.per_page
           this.page = meta.current_page;
 
@@ -186,7 +167,10 @@
               page: this.page
             }
           })
-        })
+        } catch (e) {
+
+        }
+        this.loading = false
       }
     }
   }
