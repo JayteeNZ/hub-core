@@ -3,6 +3,9 @@
     <div class="search-field" v-if="hideSearch === false">
       <b-input v-model="searchTerm" @input="refresh" :placeholder="$t(searchPlaceholder)"></b-input>
     </div>
+    <div v-if="largeDataSet" class="text-white bg-red-500 p-4 text-xs font-medium">
+      Large data set returned, showing the first <strong class="text-white">{{ total }}</strong> results, use search and filters to find products.
+    </div>
     <b-table
       :striped="!hoverable"
       :loading="loading"
@@ -35,12 +38,17 @@
 </template>
 
 <script>
-  import { debounce } from 'lodash'
+  const each = require('lodash/each')
+  const debounce = require('lodash/debounce')
   export default {
     props: {
       type: {
         type: String,
         required: true
+      },
+      filters: {
+        type: Object,
+        default: () => {}
       },
       checkable: {
         type: Boolean,
@@ -76,6 +84,7 @@
         data: [],
         sort: null,
         searchTerm: this.externalTerm,
+        largeDataSet: false,
         page: 1,
         total: 0,
         perPage: this.limit,
@@ -85,6 +94,12 @@
       externalTerm (val) {
         this.searchTerm = this.externalTerm
         this.refresh()
+      },
+      filters: {
+        deep: true,
+        handler () {
+          this.loadData()
+        }
       }
     },
     mounted() {
@@ -96,7 +111,7 @@
     },
     methods: {
       refresh: debounce(function () {
-        this.loadData()
+        this.loadData(false)
       }, 400),
       changePage(page) {
         this.page = page
@@ -110,10 +125,29 @@
       handleMouseEnter(e) {
         this.$emit('mouseenter', e)
       },
-      loadData() {
+      loadData(withFilters = true) {
         this.loading = true;
 
         // channel, category, page, searchType, keywords, rank, idsOnly, include, sort, options = {
+
+        const filters = {}
+
+        each(this.filters, (value, handle) => {
+          if (value) {
+            filters[handle] = value
+          }
+        })
+
+        let query = {
+          full_response: true,
+          per_page: this.limit
+        }
+
+        console.log(withFilters);
+
+        if (withFilters) {
+          query = {...query, ...filters}
+        }
 
         this.$getcandy.on('Search').getSearch(
           this.channel,
@@ -124,18 +158,23 @@
           false,
           false,
           this.includes,
-          this.sort
+          this.sort,
+          {
+            query: query
+          }
         ).then(response => {
           this.data = response.data.data
           this.loading = false;
           const meta = response.data.meta
-          const pagination = meta.pagination.data
 
-          this.total = pagination.total
-          this.perPage = pagination.per_page
-          this.page = pagination.current_page;
+          this.total = meta.total > 9000 ? 9000 : meta.total
 
-          this.$emit('loaded', this.data)
+          this.largeDataSet = this.total >= 9000
+
+          this.perPage = meta.per_page
+          this.page = meta.current_page;
+
+          this.$emit('loaded', response.data)
 
           const query = this.$route.query;
           // Push everything to the query string
