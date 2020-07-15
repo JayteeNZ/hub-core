@@ -15,10 +15,12 @@
       v-on:leave="panelLeave"
     >
     <div class="fixed bg-white right-0 top-0 shadow-2xl z-70 h-full" :class="width" v-if="open">
-      <header class="p-6 pb-4 border-b" v-if="heading">
+      <header class="p-6 pb-4 border-b shadow-sm" v-if="heading">
         <div class="flex justify-between">
-          <h3 class="text-lg font-medium" >{{ heading }}</h3>
-          <span class="delete" data-dismiss="quickview" @click="$emit('close')"></span>
+          <h3 class="text-sm font-bold" >{{ heading }}</h3>
+          <button @click="$emit('close')">
+            <i class="ri-close-circle-line w-4"></i>
+          </button>
         </div>
       </header>
       <slot />

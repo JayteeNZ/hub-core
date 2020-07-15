@@ -58,14 +58,16 @@
       width="w-1/3"
       heading="Version History"
     >
-      <div class="px-6 pb-6 mb-4 border-b">
-        <div class="mb-2" v-if="createdAt">
+      <div class="p-6 mb-6 border-b">
+        <div class="grid grid-cols-2 gap-2">
+        <div v-if="createdAt">
           <h6 class="text-xs font-bold">{{ $t('Created at') }}</h6>
           {{ $format.date(createdAt) }}
         </div>
         <div v-if="updatedAt">
           <h6 class="text-xs font-bold">{{ $t('Last updated') }}</h6>
           {{ $format.date(updatedAt) }}
+        </div>
         </div>
       </div>
       <div class="text-center">
